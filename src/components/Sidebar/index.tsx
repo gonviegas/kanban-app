@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { Logo, Brand, Eye, EyeSlash, SwitchLeft, SwitchRight, Sun, Moon } from "@/assets/svgs";
-import { getLocalStorage, setLocalStorage, removeDocumentClass, addDocumentClass } from "@/helpers";
 import AddBoardBtn from "./AddBoardBtn";
-import { useMediaQuery } from "../hooks/useMediaQuery";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import SidebarPopup from "./SidebarPopup";
 import BoardListItem from "./BoardListItem";
-import data from '@/pages/api/data.json';
+import data from '@/api/data.json';
+import { DarkMode } from "../DarkMode";
 
 type Props = {
   setToggle: (arg: boolean) => void
@@ -17,7 +17,6 @@ type Props = {
 
 export default function Sidebar(props: Props) {
   const [toggle, setToggle] = useState(false)
-  const [darkMode, setDarkMode] = useState(getLocalStorage('theme') === 'light' ? false : true)
   const smMediaQuery = useMediaQuery(768)
   const [boardSelectedId, setBoardSelectedId] = useState<string | null>(null)
   const [boardItemsTotal, setBoardItemsTotal] = useState<number | null>(null)
@@ -26,29 +25,17 @@ export default function Sidebar(props: Props) {
   useEffect(() => {
     if (firstRun) {
       setFirstRun(false)
-      setBoardItemsTotal(Object.values(data.boards).length)
+      // setBoardItemsTotal(Object.values(data.boards).length)
       const firstBoardItem = Object.values(data.boards)[0]
       if (firstBoardItem instanceof Object) {
-        setBoardSelectedId(firstBoardItem.id)
-        props.setBoardName(firstBoardItem.name)
+        // setBoardSelectedId(firstBoardItem.id)
+        // props.setBoardName(firstBoardItem.name)
       }
 
     }
 
     setToggle(props.toggle);
   }, [props.toggle, firstRun])
-
-  const handleDarkModeToggle = () => {
-    if (darkMode) {
-      setLocalStorage('theme', 'light')
-      removeDocumentClass('dark')
-    } else {
-      setLocalStorage('theme', 'dark')
-      addDocumentClass('dark')
-    }
-
-    setDarkMode(!darkMode)
-  }
 
   const handleToggle = (active?: boolean) => {
     setToggle(active ? active : !toggle);
@@ -60,18 +47,20 @@ export default function Sidebar(props: Props) {
     props.setBoardName(name)
   }
 
-  const boardItems = Object.keys(data.boards).map((i) => {
-    const board = data.boards[i]
-    return (
-      <BoardListItem
-        key={i}
-        id={board.id}
-        name={board.name}
-        boardSelectedId={boardSelectedId}
-        handleClick={handleBoardListItemClick}
-      />
-    )
-  })
+  // const boardItems = result.data?.users[0].boards.map((board, index: any) => {
+  //   // setBoardItemsTotal(index + 1)
+  //   return (
+  //     <BoardListItem
+  //       key={index}
+  //       id={index}
+  //       name={board.name}
+  //       boardSelectedId={boardSelectedId}
+  //       handleClick={handleBoardListItemClick}
+  //     />
+  //   )
+  // })
+  //
+  const boardItems = ""
 
   return (
     <>
@@ -82,7 +71,7 @@ export default function Sidebar(props: Props) {
           {smMediaQuery &&
             <SidebarPopup setSidebarPopupToggle={handleToggle} />
           }
-          <div className="fixed top-0 left-0 z-30 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-white border-r-2 border-secondary-300 dark:bg-gray-500 dark:border-gray-300">
+          <div className="fixed top-0 left-0 z-30 w-72 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-white border-r-2 border-secondary-300 dark:bg-gray-normal dark:border-gray-light">
             <div className={`flex flex-none items-center justify-start py-8 px-6 gap-3.5`}>
               {Logo()}
               <div className="sm:flex hidden fill-black dark:fill-white">
@@ -101,15 +90,16 @@ export default function Sidebar(props: Props) {
               </ul>
             </div>
             <div className="flex items-center justify-center w-full">
-              <div className="fixed bottom-[90px] rounded-lg px-16 py-4 bg-secondary-100 dark:bg-gray-700">
+              <div className="fixed bottom-[90px] rounded-lg px-16 py-4 bg-secondary-100 dark:bg-gray-dark">
                 <div className="flex gap-5 items-center justify-center">
                   <div className="fill-secondary-500">
                     {Sun()}
                   </div>
-                  <button onClick={handleDarkModeToggle} className="fill-primary-500 hover:fill-primary-300">
-                    {!darkMode && SwitchLeft()}
-                    {darkMode && SwitchRight()}
-                  </button>
+                  <DarkMode
+                    className="fill-primary-500 hover:fill-primary-300"
+                    lightIcon={SwitchLeft}
+                    darkIcon={SwitchRight}
+                  />
                   <div className="fill-secondary-500">
                     {Moon()}
                   </div>

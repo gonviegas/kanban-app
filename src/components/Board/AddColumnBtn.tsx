@@ -2,7 +2,7 @@ type Props = {
   setPopupName: (arg: string) => void;
 };
 
-const AddColumnBtn = (props: Props) => {
+export const AddColumnBtn: React.FC<Props> = (props) => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-full gap-6 px-12 xs:px-20 text-center">
       <span className="text-h2 text-secondary-500">
@@ -14,5 +14,3 @@ const AddColumnBtn = (props: Props) => {
     </div>
   )
 }
-
-export default AddColumnBtn;

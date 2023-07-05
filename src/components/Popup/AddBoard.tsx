@@ -40,7 +40,7 @@ const AddBoard = (props: Props) => {
             name="name"
             value={name}
             placeholder=""
-            className="bg-white dark:bg-gray-500 rounded-md border-secondary-500/[0.3] focus:ring-0 focus:border-secondary-500"
+            className="bg-white dark:bg-gray-normal rounded-md border-secondary-500/[0.3] focus:ring-0 focus:border-secondary-500"
           />
         </form>
 
@@ -54,7 +54,7 @@ const AddBoard = (props: Props) => {
               <input type="text"
                 name=""
                 placeholder="UNTITLED"
-                className="w-full bg-white dark:bg-gray-500 rounded-md border-secondary-500/[0.3] focus:ring-0 focus:border-secondary-500"
+                className="w-full bg-white dark:bg-gray-normal rounded-md border-secondary-500/[0.3] focus:ring-0 focus:border-secondary-500"
               />
               {
                 index ?

@@ -32,23 +32,17 @@ export const EyeSlash = () => {
   )
 }
 
-export const SwitchLeft = () => {
-  return (
-    <svg width="40" height="20" viewBox="0 0 40 20">
-      <rect width="40" height="20" rx="10" />
-      <path d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" fill="white" />
-    </svg>
-  )
-}
+export const SwitchLeft =
+  <svg width="40" height="20" viewBox="0 0 40 20">
+    <rect width="40" height="20" rx="10" />
+    <path d="M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" fill="white" />
+  </svg>
 
-export const SwitchRight = () => {
-  return (
-    <svg width="40" height="20" viewBox="0 0 40 20">
-      <rect x="40" y="20" width="40" height="20" rx="10" transform="rotate(-180 40 20)" />
-      <path d="M23 10C23 6.13401 26.134 3 30 3C33.866 3 37 6.13401 37 10C37 13.866 33.866 17 30 17C26.134 17 23 13.866 23 10Z" fill="white" />
-    </svg>
-  )
-}
+export const SwitchRight =
+  <svg width="40" height="20" viewBox="0 0 40 20">
+    <rect x="40" y="20" width="40" height="20" rx="10" transform="rotate(-180 40 20)" />
+    <path d="M23 10C23 6.13401 26.134 3 30 3C33.866 3 37 6.13401 37 10C37 13.866 33.866 17 30 17C26.134 17 23 13.866 23 10Z" fill="white" />
+  </svg>
 
 export const Sun = () => {
   return (

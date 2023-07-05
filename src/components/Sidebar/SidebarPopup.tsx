@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useClickOutside } from "../hooks/ClickOutside";
+import { useClickOutside } from "@/hooks/ClickOutside";
 
 type Props = {
   setSidebarPopupToggle: (arg: boolean) => void;

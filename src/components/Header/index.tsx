@@ -12,9 +12,9 @@ type Props = {
 const Header = (props: Props) => {
   return (
     <nav className="">
-      <div className="flex items-center relative justify-between top-0 border-b-2 border-secondary-300 dark:border-gray-300 z-30 bg-white dark:bg-gray-500">
+      <div className="flex items-center relative justify-between top-0 border-b-2 border-secondary-300 dark:border-gray-light z-30 bg-white dark:bg-gray-normal">
         <div className="flex items-center justify-between">
-          <button className={`flex flex-none items-center justify-between py-8 sm:gap-3.5 px-6 ${props.sidebarToggle ? "sm:pr-28" : "sm:border-r-2"} border-secondary-300 dark:border-gray-300`}>
+          <button className={`flex flex-none items-center justify-between py-8 sm:gap-3.5 px-6 ${props.sidebarToggle ? "sm:pr-28" : "sm:border-r-2"} border-secondary-300 dark:border-gray-light`}>
             {Logo()}
             <div className="sm:flex hidden fill-black dark:fill-white">
               {Brand()}

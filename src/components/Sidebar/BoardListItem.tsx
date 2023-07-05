@@ -2,7 +2,7 @@ import { Board } from "@/assets/svgs"
 
 type Props = {
   id: string
-  name: string
+  name: any 
   boardSelectedId: string | null
   handleClick: (id: string, name: string) => void
 };
