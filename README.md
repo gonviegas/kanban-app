@@ -1,3 +1,3 @@
-# Kanban App 
-
-### React + Tailwind + Prisma + PostgreSQL
+# Kanban App - Client 
+# Test
+### React + TailwindCSS + GraphQL + Prisma + PostgreSQL
